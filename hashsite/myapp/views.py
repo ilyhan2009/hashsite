@@ -22,7 +22,7 @@ def sha1hash_view(request):
             for chunk in request.FILES['docfile'].chunks():
                 sha1.update(chunk)
             sha1sum = sha1.hexdigest()
-            return HttpResponse(sha1sum)
+            return HttpResponse("SHA1: "+sha1sum)
         else:
             return HttpResponse("Form is not valid!")
     else:
