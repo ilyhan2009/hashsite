@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Django File Upload and hash verification</title>
+        <title>Django File Upload and TX SHA256 hash processing</title>
     </head>
 
     <body>
@@ -17,13 +17,14 @@
                 {{ form.docfile }}
             </p>
 
-            <p>{{ form.dochash.label_tag }} {{ form.dochash.help_text }}</p>
-            <p>
-                {{ form.dochash.errors }}
-                {{ form.dochash }}
-            </p>
-
-            <p><input type="submit" value="Get SHA256 / Verify"/></p>
+{#            <p>{{ form.dochash.label_tag }} {{ form.dochash.help_text }}</p>#}
+{#            <p>#}
+{#                {{ form.dochash.errors }}#}
+{#                {{ form.dochash }}#}
+{#            </p>#}
+{##}
+{#            <p><input type="submit" value="Get SHA256 / Verify"/></p>#}
+            <p><input type="submit" value="Process TX"/></p>
         </form>
     </body>
 
