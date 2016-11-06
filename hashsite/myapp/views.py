@@ -14,23 +14,23 @@ def form_view(request):
     return render(request, 'form.html', {'form': form})
 
 
-def sha1hash_view(request):
+def sha256hash_view(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            sha1 = hashlib.sha1()
+            sha256 = hashlib.sha256()
             for chunk in request.FILES['docfile'].chunks():
-                sha1.update(chunk)
-            sha1sum = sha1.hexdigest()
+                sha256.update(chunk)
+            sha256sum = sha256.hexdigest()
             dochash = form.cleaned_data['dochash']
 
             if dochash:
-                if dochash.upper() == sha1sum.upper():
+                if dochash.upper() == sha256sum.upper():
                     return HttpResponse('<p style="color:green">Hash is correct!</p>')
                 else:
                     return HttpResponse('<p style="color:red">Hash is NOT correct!</p>')
             else:
-                return HttpResponse("SHA1: "+sha1sum)
+                return HttpResponse("SHA256: "+sha256sum)
         else:
             return HttpResponse("Form is not valid!")
     else:

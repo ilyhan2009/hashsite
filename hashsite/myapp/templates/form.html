@@ -7,7 +7,7 @@
 
     <body>
         <!-- Upload form. Note enctype attribute! -->
-        <form action="{% url "sha1hash_view_name" %}" method="post" enctype="multipart/form-data">
+        <form action="{% url "sha256hash_view_name" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <p>{{ form.non_field_errors }}</p>
 
@@ -23,7 +23,7 @@
                 {{ form.dochash }}
             </p>
 
-            <p><input type="submit" value="Get SHA1 / Verify"/></p>
+            <p><input type="submit" value="Get SHA256 / Verify"/></p>
         </form>
     </body>
 
